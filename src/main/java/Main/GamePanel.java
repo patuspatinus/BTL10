@@ -1,6 +1,7 @@
 package Main;
 
 import Enity.Player;
+import Tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,14 +18,13 @@ public class GamePanel extends JPanel implements Runnable{
 
     //FPS
     int FPS=60;
+    TileManager tileManager=new TileManager(this);
 
     Input input=new Input();
     Thread gameThread;
     Player player = new Player(this,input);
     //set default position
-    int playerX=100;
-    int playerY=100;
-    int playerSpeed=4;
+
 
     public GamePanel () {
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -79,6 +79,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent( Graphics g){
         super.paintComponent(g);
         Graphics2D g2=(Graphics2D) g;
+        tileManager.draw(g2);
         player.draw(g2);
         g2.dispose();
     }
