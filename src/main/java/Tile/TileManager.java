@@ -36,7 +36,20 @@ public class TileManager extends Tile{
         }
     }
     public void draw(Graphics2D g2){
-
-        g2.drawImage(tile[0].image,0,0,gp.TileSize,gp.TileSize,null);
+        int col=0;
+        int row=0;
+        int x=0;
+        int y=0;
+        while(col <= gp.maxScreenCol && row <= gp.maxScreenRow){
+            g2.drawImage(tile[0].image,x,y,gp.TileSize,gp.TileSize,null);
+            col++;
+            x+=gp.TileSize;
+            if(col==gp.maxScreenCol){
+                col=0;
+                x=0;
+                row++;
+                y+=gp.TileSize;
+            }
+        }
     }
 }

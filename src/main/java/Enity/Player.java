@@ -51,10 +51,10 @@ public class Player extends Enity{
             File f_down_2=new File("res/sprites/player_down_2.png");
             File f_left=new File("res/sprites/player_left.png");
             File f_left_1=new File("res/sprites/player_left_1.png");
-//            File f_left_2=new File("res/sprites/player_lef_2.png");
+            File f_left_2=new File("res/sprites/player_lef_2.png");
             File f_right=new File("res/sprites/player_right.png");
             File f_right_1=new File("res/sprites/player_right_1.png");
-//            File f_right_2=new File("res/sprites/player_right_2.png");
+            File f_right_2=new File("res/sprites/player_right_2.png");
             up=ImageIO.read(f_up);
             up1=ImageIO.read(f_up_1);
             up2=ImageIO.read(f_up_2);
@@ -66,7 +66,7 @@ public class Player extends Enity{
 //            left2=ImageIO.read(f_left_2);
             right=ImageIO.read(f_right);
             right1=ImageIO.read(f_right_1);
-//            right2=ImageIO.read(f_right_2);
+            right2=ImageIO.read(f_right_2);
 
         }catch (IOException e){
             e.printStackTrace();
@@ -92,7 +92,7 @@ public class Player extends Enity{
                 x+=speed;
             }
             SpriteCount++;
-            if(SpriteCount>=5){
+            if(SpriteCount==5){
                 if(SpriteNum==0){
                     SpriteNum=1;
                 }
@@ -155,7 +155,7 @@ public class Player extends Enity{
                     image = right1;
                 }
                 if (SpriteNum == 2) {
-                    image = right1;
+                    image = right2;
                 }
             }
             default -> {
